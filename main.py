@@ -10,7 +10,7 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 
 # Load your Emotion Detection model (.h5 file)
 # emotion_model = keras.models.load_model('C:/Kecilin/emotion_detection/V4/checkpoint/new_model.h5')
-emotion_model = keras.models.load_model('script/model/test1.h5')
+emotion_model = keras.models.load_model('training/40/40.h5')
 
 # Define emotion labels (adjust these labels to match your model's output)
 # emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
@@ -19,7 +19,7 @@ emotion_labels = ['Anger', 'Contempt', 'Disgust', 'Fear', 'Happiness', 'Neutral'
 # emotion_labels = ['Neutral', 'Positive', 'Negative']
 
 # Create a VideoCapture object to access the webcam (usually the default camera, index 0)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Check if the camera opened successfully
 if not cap.isOpened():
