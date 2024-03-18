@@ -166,7 +166,7 @@ if __name__ == '__main__':
                                                     color_mode="grayscale")
 
     test_datagen = ImageDataGenerator(rescale = 1./255)
-    test_set = test_datagen.flow_from_directory('dataset/fer2013plus/test',
+    test_set = test_datagen.flow_from_directory('dataset/dataset/fer2013plus/test',
                                                         target_size = (48, 48),
                                                         batch_size = 32,
                                                         class_mode = 'binary',
