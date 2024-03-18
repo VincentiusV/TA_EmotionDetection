@@ -19,7 +19,7 @@ zip_path = 'dataset.zip'
 gdown.download(direct_link, zip_path, quiet=False)
 
 # Create a folder to extract the dataset
-extracted_dir = 'extracted_dataset'
+extracted_dir = 'dataset'
 os.makedirs(extracted_dir, exist_ok=True)
 
 # Extract the dataset into the 'extracted_dataset' folder
