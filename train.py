@@ -149,11 +149,11 @@ if __name__ == '__main__':
         raise ValueError("Invalid model type. Choose one of 'custom', 'vgg16', 'resnet', 'inceptionv3'.")
 
     if dataset == 'ori':
-        train_dir = 'dataset/fer2013plus/train/'
+        train_dir = 'dataset/dataset/fer2013plus/train/'
     elif dataset == 'augmented':
-        train_dir = 'dataset/augmented/train/'
+        train_dir = 'dataset/dataset/augmented/train/'
     elif dataset == 'masked':
-        train_dir = 'dataset/train-masked/'
+        train_dir = 'dataset/dataset/train-masked/'
     else:
         raise ValueError("Invalid dataset type. Choose one of 'ori', 'augmented', 'masked'.")
     
