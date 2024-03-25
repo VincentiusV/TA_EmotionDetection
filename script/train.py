@@ -186,7 +186,7 @@ if __name__ == '__main__':
     reduce_lr = ReduceLROnPlateau(
         monitor='val_loss',  # Monitor the validation loss
         factor=0.1,          # Reduce the learning rate by a factor of 0.1
-        patience=5,          # Number of epochs with no improvement after which learning rate will be reduced
+        patience=10,          # Number of epochs with no improvement after which learning rate will be reduced
         verbose=1,           # Int to print a message when the callback takes an action
         mode='auto',         # 'auto' will infer from the direction of the monitored quantity (min or max)
         min_delta=0.0001,    # Minimum change to qualify as an improvement
@@ -223,7 +223,7 @@ if __name__ == '__main__':
             patience=20,
             restore_best_weights=True
         ),
-        reduce_lr,
+        # reduce_lr,
         metrics_callback,
         csv_logger
     ]

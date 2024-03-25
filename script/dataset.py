@@ -16,7 +16,7 @@ datagen = ImageDataGenerator(
 base_train_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/fer2013plus/train'
 
 # The base directory where the augmented images will be saved
-base_augmented_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/augmented/train'
+base_augmented_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/augmented_2/train'
 
 # List of emotions
 emotions = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
@@ -51,7 +51,7 @@ for emotion in emotions:
         # Generate and save the augmented images
         for batch in datagen.flow(x, batch_size=16, save_to_dir=augmented_emotion_dir, save_prefix='aug', save_format='png'):
             i += 1
-            if i > 20:  # Change this to how many augmentations you want per image
+            if i > 100:  # Change this to how many augmentations you want per image
                 break  # Stop after generating the desired number of augmented images
 
         print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")
