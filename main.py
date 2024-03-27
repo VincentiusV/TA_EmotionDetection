@@ -1,16 +1,16 @@
 import cv2
 import numpy as np
 import tensorflow as tf
-from tensorflow import keras
 import psutil
 import time
+from tensorflow import keras
 
 # Load the pre-trained Haar Cascade classifier for face detection
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 # Load your Emotion Detection model (.h5 file)
 # emotion_model = keras.models.load_model('C:/Kecilin/emotion_detection/V4/checkpoint/new_model.h5')
-emotion_model = keras.models.load_model('training/40/40.h5')
+emotion_model = keras.models.load_model('training/100_custom2_augmented/100_custom2_augmented.h5')
 
 # Define emotion labels (adjust these labels to match your model's output)
 # emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
@@ -21,7 +21,7 @@ emotion_labels = ['Anger', 'Contempt', 'Disgust', 'Fear', 'Happiness', 'Neutral'
 # Create a VideoCapture object to access the webcam (usually the default camera, index 0)
 cap = cv2.VideoCapture(1)
 
-# Check if the camera opened successfully
+# Check if the camera opened successfullyc
 if not cap.isOpened():
     print("Error: Could not open camera.")
     exit()
@@ -61,6 +61,7 @@ while True:
 
         # Make an emotion prediction using your model
         emotion_prediction = emotion_model.predict(np.array([face_roi]))
+        print (emotion_prediction[0])
         emotion_index = np.argmax(emotion_prediction[0])
         emotion_text = emotion_labels[emotion_index]
 

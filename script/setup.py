@@ -29,7 +29,7 @@ def remove_zip_file(zip_path):
     print("Zip file removed.")
 
 def download_and_extract_dataset(url, root_folder):
-    zip_path = os.path.join(root_folder, 'dataset.zip')
+    zip_path = os.path.join(root_folder, 'augmented_2.zip')
     download_dataset(url, zip_path)
     extract_dataset(zip_path, root_folder)
     remove_macosx_dir(root_folder)
@@ -37,10 +37,14 @@ def download_and_extract_dataset(url, root_folder):
 
 if __name__ == "__main__":
     # URL to your dataset on Google Drive
-    url = 'https://drive.google.com/uc?id=1jRnIvaXiFL529uncdZwpx9p8ty1f7A1D'
+    # url = 'https://drive.google.com/uc?id=1D2EU-lcTUYxwyQoDecSQF1M-QwXf8qfR'
+    url = 'https://drive.google.com/uc?id=1II5wzmcWi6Sw3Ls8xWmckvVA9zexi8OT'
+
+# https://drive.google.com/file/d/1D2EU-lcTUYxwyQoDecSQF1M-QwXf8qfR/view?usp=sharing
+# https://drive.google.com/file/d/1jRnIvaXiFL529uncdZwpx9p8ty1f7A1D/view?usp=sharing
 
     # Root folder where you want to extract the dataset
-    root_folder = '../'
+    root_folder = 'dataset'
 
     # Download and extract the dataset
     download_and_extract_dataset(url, root_folder)

@@ -16,10 +16,12 @@ datagen = ImageDataGenerator(
 base_train_dir = '../dataset/fer2013plus/train'
 
 # The base directory where the augmented images will be saved
-base_augmented_dir = '../augmented_Windows/train'
+base_augmented_dir = '../augmented_neutral/train'
 
 # List of emotions
-emotions = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
+# emotions = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
+
+emotions = ['neutral']
 
 # Iterate over each emotion
 for emotion in emotions:
@@ -51,7 +53,7 @@ for emotion in emotions:
         # Generate and save the augmented images
         for batch in datagen.flow(x, batch_size=16, save_to_dir=augmented_emotion_dir, save_prefix='aug', save_format='png'):
             i += 1
-            if i > 15:  # Change this to how many augmentations you want per image
+            if i > 100:  # Change this to how many augmentations you want per image
                 break  # Stop after generating the desired number of augmented images
 
         print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")
@@ -75,10 +77,10 @@ for emotion in emotions:
 # base_train_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/fer2013plus/train'
 
 # # The base directory where the augmented images will be saved
-# base_augmented_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/augmented_3/train'
+# base_augmented_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/augmented_split/train'
 
 # # List of emotions
-# emotions = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
+# emotions = ['neutral']
 
 # # Iterate over each emotion
 # for emotion in emotions:
@@ -118,7 +120,7 @@ for emotion in emotions:
 #                 if not os.path.exists(new_subdir):
 #                     os.makedirs(new_subdir)
                 
-#             if subdir_counter > 10000:  # Change this to how many augmentations you want per image
+#             if subdir_counter > 10:  # Change this to how many augmentations you want per image
 #                 break  # Stop after generating the desired number of augmented images
 
 #         print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")
