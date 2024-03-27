@@ -223,7 +223,7 @@ if __name__ == '__main__':
             patience=20,
             restore_best_weights=True
         ),
-        # reduce_lr,
+        reduce_lr,
         metrics_callback,
         csv_logger
     ]
