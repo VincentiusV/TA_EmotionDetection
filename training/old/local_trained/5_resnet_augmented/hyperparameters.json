@@ -1,0 +1,6 @@
+{
+    "model_name": "5_resnet_augmented",
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 0.001
+}

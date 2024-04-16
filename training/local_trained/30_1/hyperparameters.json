@@ -1,6 +1,0 @@
-{
-    "model_name": "30_1",
-    "epochs": 30,
-    "batch_size": 64,
-    "learning_rate": 0.001
-}

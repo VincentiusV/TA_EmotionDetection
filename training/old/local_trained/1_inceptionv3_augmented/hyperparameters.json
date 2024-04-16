@@ -1,0 +1,6 @@
+{
+    "model_name": "1_inceptionv3_augmented",
+    "epochs": 1,
+    "batch_size": 32,
+    "learning_rate": 0.001
+}

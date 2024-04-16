@@ -1,0 +1,6 @@
+{
+    "model_name": "30_custom2_augmented_local",
+    "epochs": 30,
+    "batch_size": 32,
+    "learning_rate": 0.001
+}

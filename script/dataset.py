@@ -53,7 +53,7 @@ for emotion in emotions:
         # Generate and save the augmented images
         for batch in datagen.flow(x, batch_size=16, save_to_dir=augmented_emotion_dir, save_prefix='aug', save_format='png'):
             i += 1
-            if i > 100:  # Change this to how many augmentations you want per image
+            if i > 1000:  # Change this to how many augmentations you want per image
                 break  # Stop after generating the desired number of augmented images
 
         print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")

@@ -61,7 +61,6 @@ while True:
 
         # Make an emotion prediction using your model
         emotion_prediction = emotion_model.predict(np.array([face_roi]))
-        print (emotion_prediction[0])
         emotion_index = np.argmax(emotion_prediction[0])
         emotion_text = emotion_labels[emotion_index]
 

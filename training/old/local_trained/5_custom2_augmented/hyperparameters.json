@@ -1,0 +1,6 @@
+{
+    "model_name": "10_custom2_augmented",
+    "epochs": 5,
+    "batch_size": 100,
+    "learning_rate": 0.001
+}
