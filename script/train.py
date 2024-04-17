@@ -137,9 +137,9 @@ if __name__ == '__main__':
     if dataset == 'ori':
         train_dir = '../dataset/fer2013plus/train/'
     elif dataset == 'augmented':
-        train_dir = '../dataset/augmented/train/'
+        train_dir = '../dataset/augmented'
     elif dataset == 'masked':
-        train_dir = '../dataset/train-masked/'
+        train_dir = '../dataset/augmented_masked'
     else:
         raise ValueError("Invalid dataset type. Choose one of 'ori', 'augmented', 'masked'.")
     

@@ -3,7 +3,7 @@ from skimage import io
 import os
 
 datagen = ImageDataGenerator(
-    rotation_range=20,
+    rotation_range=30,
     width_shift_range=0.1,
     height_shift_range=0.1,
     shear_range=0.1,
@@ -16,12 +16,12 @@ datagen = ImageDataGenerator(
 base_train_dir = '../dataset/fer2013plus/train'
 
 # The base directory where the augmented images will be saved
-base_augmented_dir = '../augmented_neutral/train'
+base_augmented_dir = '../dataset/augmented'
 
 # List of emotions
 # emotions = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
 
-emotions = ['neutral']
+emotions = ['surprise']
 
 # Iterate over each emotion
 for emotion in emotions:
@@ -47,40 +47,40 @@ for emotion in emotions:
             x = x.reshape((1, ) + x.shape)
         except:
             continue  # If an image can't be read, skip it
-        
+
         # Initialize counter
         i = 0
         # Generate and save the augmented images
         for batch in datagen.flow(x, batch_size=16, save_to_dir=augmented_emotion_dir, save_prefix='aug', save_format='png'):
             i += 1
-            if i > 1000:  # Change this to how many augmentations you want per image
+            if i > 3:  # Change this to how many augmentations you want per image
                 break  # Stop after generating the desired number of augmented images
 
-        print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")
 
+        print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")
 
 # from keras.preprocessing.image import ImageDataGenerator
 # from skimage import io
 # import os
 
 # datagen = ImageDataGenerator(
-#     rotation_range=15,
-#     width_shift_range=0.1,
-#     height_shift_range=0.1,
-#     shear_range=0.1,
-#     zoom_range=0.1,
+#     rotation_range=35,
+#     width_shift_range=0.2,
+#     height_shift_range=0.2,
+#     shear_range=0.2,
+#     zoom_range=0.2,
 #     horizontal_flip=True,
 #     fill_mode='nearest'
 # )
 
 # # The base directory where the train data is stored
-# base_train_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/fer2013plus/train'
+# base_train_dir = '../dataset/fer2013plus/train'
 
 # # The base directory where the augmented images will be saved
-# base_augmented_dir = '/Users/vincentiusverel/Vincent/TugasAkhir/TA_EmotionDetection/dataset/augmented_split/train'
+# base_augmented_dir = '../dataset/augmented'
 
 # # List of emotions
-# emotions = ['neutral']
+# emotions = ['anger']
 
 # # Iterate over each emotion
 # for emotion in emotions:
@@ -95,32 +95,38 @@ for emotion in emotions:
 #     # List all images in the emotion directory
 #     image_files = os.listdir(emotion_dir)
     
-#     # Iterate over each image file
-#     for image_file in image_files:
-#         # Full path to the image
-#         image_path = os.path.join(emotion_dir, image_file)
-        
-#         # Read the image for augmentation
+#     # Collect all image paths for augmentation
+#     image_paths = [os.path.join(emotion_dir, image_file) for image_file in image_files]
+    
+#     # Initialize a list to store valid image paths
+#     valid_image_paths = []
+    
+#     # Count the number of valid images
+#     for image_path in image_paths:
+#         try:
+#             io.imread(image_path)
+#             valid_image_paths.append(image_path)
+#         except:
+#             print(f"Error reading {image_path}")
+    
+#     num_valid_images = len(valid_image_paths)
+#     print(f"Number of valid images for {emotion}: {num_valid_images}")
+    
+#     # Calculate how many times each image should be augmented
+#     num_augmentations_per_image = int((5020 - num_valid_images) / num_valid_images) + 1
+    
+#     # Augment images
+#     for image_path in valid_image_paths:
 #         try:
 #             x = io.imread(image_path)
 #             x = x.reshape((1, ) + x.shape)
 #         except:
-#             continue  # If an image can't be read, skip it
+#             continue
         
-#         # Initialize counter for subdirectories
-#         subdir_counter = 0
+#         for i in range(num_augmentations_per_image):
+#             for batch in datagen.flow(x, batch_size=16, save_to_dir=augmented_emotion_dir, save_prefix='aug', save_format='png'):
+#                 break  # Only one batch per image
         
-#         # Generate and save the augmented images
-#         for batch in datagen.flow(x, batch_size=16, save_to_dir=augmented_emotion_dir, save_prefix='aug', save_format='png'):
-#             subdir_counter += 1
-            
-#             # If we have generated 100 augmented images, create a new subdirectory
-#             if subdir_counter % 10000 == 0:
-#                 new_subdir = os.path.join(augmented_emotion_dir, f'subdir_{subdir_counter // 100}')
-#                 if not os.path.exists(new_subdir):
-#                     os.makedirs(new_subdir)
-                
-#             if subdir_counter > 10:  # Change this to how many augmentations you want per image
-#                 break  # Stop after generating the desired number of augmented images
+#     print(f"Augmentation completed for {emotion}")
 
-#         print(f"Augmented images for {image_file} saved in {augmented_emotion_dir}")
+# print("All augmentations completed!")
