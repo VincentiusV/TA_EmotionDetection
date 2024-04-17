@@ -29,7 +29,7 @@ def remove_zip_file(zip_path):
     print("Zip file removed.")
 
 def download_and_extract_dataset(url, root_folder):
-    zip_path = os.path.join(root_folder, 'augmented_2.zip')
+    zip_path = os.path.join(root_folder, 'dataset.zip')
     download_dataset(url, zip_path)
     extract_dataset(zip_path, root_folder)
     remove_macosx_dir(root_folder)
