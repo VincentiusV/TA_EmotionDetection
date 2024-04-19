@@ -19,8 +19,8 @@ def copy_random_images(source_folder, destination_folder, num_images_to_copy):
         print(f"Copied {files[i]} to {destination_folder}")
 
 # Paths to the folders
-source_folder = '../dataset/augmented_masked/surprise'
-destination_folder = '../dataset/augmented/surprise'
-num_images_to_copy = 1700  # Number of images you want to copy
+source_folder = '../dataset/masked/sadness'
+destination_folder = '../dataset/augmented_masked/sadness'
+num_images_to_copy = 1719 # Number of images you want to copy
 
 copy_random_images(source_folder, destination_folder, num_images_to_copy)
