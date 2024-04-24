@@ -1,0 +1,6 @@
+{
+    "model_name": "50_inceptionv3_ori",
+    "epochs": 50,
+    "batch_size": 32,
+    "learning_rate": 0.001
+}
