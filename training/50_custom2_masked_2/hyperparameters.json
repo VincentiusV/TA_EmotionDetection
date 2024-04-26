@@ -1,0 +1,6 @@
+{
+    "model_name": "50_custom2_masked_2",
+    "epochs": 50,
+    "batch_size": 32,
+    "learning_rate": 0.001
+}
