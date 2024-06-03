@@ -37,8 +37,7 @@ def download_and_extract_dataset(url, root_folder):
 
 if __name__ == "__main__":
     # URL to your dataset on Google Drive
-    # url = 'https://drive.google.com/uc?id=1l8JDROtRwaztd5hnxuKeP2VTGQyC5TXj'
-    url = 'https://drive.google.com/uc?id=1WesPZfpuAh0mCMCNhpIHLrCiwL1PXACa'
+    url = 'https://drive.google.com/uc?id=1l8JDROtRwaztd5hnxuKeP2VTGQyC5TXj'
 
     # Root folder where you want to extract the dataset
     root_folder = '../'
